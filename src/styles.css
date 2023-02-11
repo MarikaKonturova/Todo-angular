@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #1c1917;
+  color: #d6d3d1;
+}
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
