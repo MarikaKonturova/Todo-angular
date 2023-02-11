@@ -12,3 +12,16 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+button {
+  padding: 10px 30px;
+  border: 1px solid #d6d3d1;
+  background-color: #1c1917;
+  color: #d6d3d1;
+}
+input {
+  border: none;
+  border-bottom: 1px solid #d6d3d1;
+  padding: 10px 30px;
+  background: #1c1917;
+  color: #d6d3d1;
+}

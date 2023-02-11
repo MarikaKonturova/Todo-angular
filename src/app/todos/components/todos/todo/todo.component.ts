@@ -1,5 +1,5 @@
 import { Todo } from './../../../models/todos.model'
-import { Component, Input } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 
 @Component({
   selector: 'tl-todo',
@@ -8,4 +8,21 @@ import { Component, Input } from '@angular/core'
 })
 export class TodoComponent {
   @Input() todo!: Todo
+  @Output() deleteTodoEvent = new EventEmitter<string>()
+  @Output() editTodoEvent = new EventEmitter<{ id: string; title: string }>()
+
+  isTitleEdit = false
+  newTitle = ''
+
+  clickDeleteTodo() {
+    this.deleteTodoEvent.emit(this.todo.id)
+  }
+  activateTitleEdit() {
+    this.newTitle = this.todo.title
+    this.isTitleEdit = true
+  }
+  blurTitleEdit() {
+    this.isTitleEdit = false
+    this.editTodoEvent.emit({ id: this.todo.id, title: this.newTitle })
+  }
 }

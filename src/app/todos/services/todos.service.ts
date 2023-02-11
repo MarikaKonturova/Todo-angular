@@ -29,4 +29,30 @@ export class TodosService {
         this.todos$.next(todos)
       })
   }
+  deleteTodo(id: string) {
+    this.http
+      .delete<CommonResponse>(`${environment.baseURL}/todo-lists/${id}`)
+      .pipe(
+        map(() => {
+          const oldTodos = this.todos$.getValue()
+          return oldTodos.filter(todo => todo.id !== id)
+        })
+      )
+      .subscribe(todos => {
+        this.todos$.next(todos)
+      })
+  }
+  updateTodoTitle({ id, title }: { id: string; title: string }) {
+    this.http
+      .put<CommonResponse>(`${environment.baseURL}/todo-lists/${id}`, { title })
+      .pipe(
+        map(() => {
+          const oldTodos = this.todos$.getValue()
+          return oldTodos.map(todo => (todo.id === id ? { ...todo, title } : todo))
+        })
+      )
+      .subscribe(todos => {
+        this.todos$.next(todos)
+      })
+  }
 }

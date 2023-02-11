@@ -20,10 +20,7 @@
 }
 .form_button {
   flex: 1;
-  padding: 10px 30px;
-  border: 1px solid #d6d3d1;
-  background-color: #1c1917;
-  color: #d6d3d1;
+  
 }
 
 .form_input {

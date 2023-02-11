@@ -1,1 +1,15 @@
-<div class="container">{{ todo.title }}</div>
+<div class="container">
+  <div class="header">
+    <input
+      *ngIf="isTitleEdit; else content"
+      type="text"
+      [(ngModel)]="newTitle"
+      (blur)="blurTitleEdit()"
+    />
+    <ng-template #content>
+      <h2 class="title" (dblclick)="activateTitleEdit()">{{ todo.title }}</h2>
+    </ng-template>
+    <button class="button" (click)="clickDeleteTodo()">X</button>
+  </div>
+  <div className="tasks"></div>
+</div>

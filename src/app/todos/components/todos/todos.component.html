@@ -10,6 +10,11 @@
     <button class="form_button" (click)="addTodo()">+</button>
   </div>
   <div class="todos">
-    <tl-todo *ngFor="let todo of todos$ | async" [todo]="todo"></tl-todo>
+    <tl-todo
+      *ngFor="let todo of todos$ | async"
+      [todo]="todo"
+      (deleteTodoEvent)="deleteTodo($event)"
+      (editTodoEvent)="updateTodo($event)"
+    ></tl-todo>
   </div>
 </div>
