@@ -27,6 +27,15 @@
             "prefix": "tl",
             "style": "kebab-case"
           }
+        ],
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "extendDefaults": true,
+            "types": {
+              "{}": false
+            }
+          }
         ]
       }
     },

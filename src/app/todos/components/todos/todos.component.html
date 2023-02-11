@@ -1,3 +1,15 @@
-<div class="group">
-  <tl-todo *ngFor="let todo of todos$ | async" [todo]="todo"></tl-todo>
+<div class="container">
+  <h1>Angular Todo</h1>
+  <div class="form">
+    <input
+      class="form_input"
+      type="text"
+      placeholder="what you need to do?..."
+      [(ngModel)]="todoTitle"
+    />
+    <button class="form_button" (click)="addTodo()">+</button>
+  </div>
+  <div class="todos">
+    <tl-todo *ngFor="let todo of todos$ | async" [todo]="todo"></tl-todo>
+  </div>
 </div>
