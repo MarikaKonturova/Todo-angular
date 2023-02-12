@@ -5,3 +5,7 @@
   padding: 10px 0;
   width: 100%;
 }
+.button_active {
+  background-color: #d6d3d1;
+  color: #1f1d1b;
+}

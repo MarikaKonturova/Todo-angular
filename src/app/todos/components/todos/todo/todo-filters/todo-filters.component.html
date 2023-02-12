@@ -1,5 +1,20 @@
 <div class="container">
-  <button class="button" (click)="clickFilterChange(this.filter.all)">All</button>
-  <button class="button" (click)="clickFilterChange(this.filter.completed)">Completed</button>
-  <button class="button" (click)="clickFilterChange(this.filter.active)">Active</button>
+  <button
+    [ngClass]="{ button: true, button_active: todoFilter === filter.all }"
+    (click)="clickFilterChange(this.filter.all)"
+  >
+    All
+  </button>
+  <button
+    [ngClass]="{ button: true, button_active: todoFilter === filter.completed }"
+    (click)="clickFilterChange(this.filter.completed)"
+  >
+    Completed
+  </button>
+  <button
+    [ngClass]="{ button: true, button_active: todoFilter === filter.active }"
+    (click)="clickFilterChange(this.filter.active)"
+  >
+    Active
+  </button>
 </div>

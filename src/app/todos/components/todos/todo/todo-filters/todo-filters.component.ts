@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Filter } from 'src/app/core/enums/filter.enum'
 
 @Component({
@@ -8,6 +8,7 @@ import { Filter } from 'src/app/core/enums/filter.enum'
 })
 export class TodoFiltersComponent {
   filter = Filter
+  @Input() todoFilter!: Filter
   @Output() changeFilterEvent = new EventEmitter<Filter>()
 
   clickFilterChange(filter: Filter) {

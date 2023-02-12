@@ -60,4 +60,9 @@ export class TodosService {
         this.todos$.next(todos)
       })
   }
+  changeFilter({ id, filter }: { id: string; filter: Filter }) {
+    const oldTodos = this.todos$.getValue()
+    const newTodos = oldTodos.map(todo => (todo.id === id ? { ...todo, filter } : todo))
+    this.todos$.next(newTodos)
+  }
 }
