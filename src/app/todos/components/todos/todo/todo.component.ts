@@ -1,5 +1,5 @@
 import { TasksService } from './../../../services/tasks.service'
-import { Todo } from './../../../models/todos.model'
+import { MainTodo } from './../../../models/todos.model'
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  @Input() todo!: Todo
+  @Input() todo!: MainTodo
   @Output() deleteTodoEvent = new EventEmitter<string>()
   @Output() editTodoEvent = new EventEmitter<{ id: string; title: string }>()
 

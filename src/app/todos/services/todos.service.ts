@@ -1,19 +1,24 @@
 import { CommonResponse } from './../../core/models/core.models'
-import { Todo } from './../models/todos.model'
+import { MainTodo, Todo } from './../models/todos.model'
 import { environment } from './../../../environments/environment'
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject, map } from 'rxjs'
+import { Filter } from 'src/app/core/enums/filter.enum'
 @Injectable({
   providedIn: 'root',
 })
 export class TodosService {
   constructor(private http: HttpClient) {}
-  todos$ = new BehaviorSubject<Todo[]>([])
+  todos$ = new BehaviorSubject<MainTodo[]>([])
+  filter = Filter
   getTodos() {
-    this.http.get<Todo[]>(`${environment.baseURL}/todo-lists`).subscribe(todos => {
-      this.todos$.next(todos)
-    })
+    this.http
+      .get<Todo[]>(`${environment.baseURL}/todo-lists`)
+      .pipe(map(todos => todos.map(todo => ({ ...todo, filter: this.filter.all }))))
+      .subscribe(todos => {
+        this.todos$.next(todos)
+      })
   }
   addTodo(title: string) {
     this.http
@@ -22,7 +27,7 @@ export class TodosService {
         map(res => {
           const oldTodos = this.todos$.getValue()
           const newTodo = res.data.item
-          return [newTodo, ...oldTodos]
+          return [{ ...newTodo, filter: this.filter.all }, ...oldTodos]
         })
       )
       .subscribe(todos => {

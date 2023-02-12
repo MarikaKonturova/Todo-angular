@@ -16,4 +16,9 @@
   <div className="tasks">
     <tl-tasks [todoId]="todo.id"></tl-tasks>
   </div>
+  <tl-todo-filters></tl-todo-filters>
+  <tl-todo-footer
+    [addedDate]="todo.addedDate"
+    (changeFilterEvent)="filterTasks($event)"
+  ></tl-todo-footer>
 </div>

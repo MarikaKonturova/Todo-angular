@@ -1,7 +1,8 @@
-import { Todo } from './../../models/todos.model'
+import { MainTodo, Todo } from './../../models/todos.model'
 import { Observable } from 'rxjs'
 import { Component, OnInit } from '@angular/core'
 import { TodosService } from '../../services/todos.service'
+import { Filter } from 'src/app/core/enums/filter.enum'
 
 @Component({
   selector: 'tl-todos',
@@ -9,7 +10,7 @@ import { TodosService } from '../../services/todos.service'
   styleUrls: ['./todos.component.css'],
 })
 export class TodosComponent implements OnInit {
-  todos$!: Observable<Todo[]>
+  todos$!: Observable<MainTodo[]>
   todoTitle = ''
   constructor(private todosService: TodosService) {}
 
