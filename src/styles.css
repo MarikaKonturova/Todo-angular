@@ -3,7 +3,8 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #1c1917;
+  background: rgb(94, 85, 77);
+  background: radial-gradient(circle, rgba(94, 85, 77, 1) 33%, rgba(31, 29, 27, 1) 100%);
   color: #d6d3d1;
 }
 a,
@@ -15,13 +16,13 @@ a:active {
 button {
   padding: 10px 30px;
   border: 1px solid #d6d3d1;
-  background-color: #1c1917;
+  background-color: transparent;
   color: #d6d3d1;
 }
 input {
   border: none;
   border-bottom: 1px solid #d6d3d1;
   padding: 10px 30px;
-  background: #1c1917;
+  background: transparent;
   color: #d6d3d1;
 }

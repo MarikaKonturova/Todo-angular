@@ -3,6 +3,7 @@
     <input
       *ngIf="isTitleEdit; else content"
       type="text"
+      class="header_input"
       [(ngModel)]="newTitle"
       (blur)="blurTitleEdit()"
     />
@@ -11,5 +12,7 @@
     </ng-template>
     <button class="button" (click)="clickDeleteTodo()">X</button>
   </div>
-  <div className="tasks"></div>
+  <div className="tasks">
+    <tl-tasks [todoId]="todo.id"></tl-tasks>
+  </div>
 </div>
