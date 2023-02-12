@@ -10,9 +10,16 @@ import { Task } from 'src/app/todos/models/tasks.model'
 })
 export class TasksComponent implements OnInit {
   @Input() todoId = ''
-  tasks$?: Observable<Task[]>
+  taskTitle = ''
+  tasks$!: Observable<Task[]>
   constructor(private tasksService: TasksService) {}
   ngOnInit(): void {
-    this.tasks$ = this.tasksService.getTasks(this.todoId)
+    this.tasks$ = this.tasksService.tasks$
+    this.tasksService.getTasks(this.todoId)
+  }
+
+  addTask() {
+    this.tasksService.addTask({ title: this.taskTitle, todoId: this.todoId })
+    this.taskTitle = ''
   }
 }
