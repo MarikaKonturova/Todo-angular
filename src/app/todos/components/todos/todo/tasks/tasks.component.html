@@ -6,5 +6,10 @@
   class="input"
 />
 <div class="tasks">
-  <tl-task *ngFor="let task of tasks$ | async" [task]="task"></tl-task>
+  <tl-task
+    *ngFor="let task of tasks$ | async"
+    [task]="task"
+    (deleteTaskEvent)="deleteTask($event)"
+    (updateTaskEvent)="updateTask($event)"
+  ></tl-task>
 </div>

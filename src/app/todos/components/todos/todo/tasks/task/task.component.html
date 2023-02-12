@@ -1,10 +1,25 @@
 <div class="task">
-  <label class="title">
-    <p class="title_text">
-      {{ task.title }}
-    </p>
-    <input type="checkbox" class="checkbox" />
-    <span class="checkmark"></span>
-  </label>
-  <button class="button">x</button>
+  <input
+    *ngIf="isTitleEdit; else content"
+    [(ngModel)]="newTitle"
+    type="text"
+    (keyup.enter)="enterTitleEdit()"
+  />
+  <ng-template #content>
+    <label class="title">
+      <p class="title_text">
+        {{ task.title }}
+      </p>
+      <input
+        type="checkbox"
+        class="checkbox"
+        (click)="clickStatusUpdate($event)"
+        [checked]="task.status === taskStatusEnum.completed"
+      />
+      <span class="checkmark"></span>
+    </label>
+  </ng-template>
+  <button class="button" (click)="activateTitleEdit()">✎</button>
+
+  <button class="button" (click)="clickDeleteTask()">x</button>
 </div>
