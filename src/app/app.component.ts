@@ -1,10 +1,15 @@
-import { Component } from '@angular/core'
+import { AuthService } from './core/services/auth.service'
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'tl-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'todolist16'
+export class AppComponent implements OnInit {
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.me()
+  }
 }

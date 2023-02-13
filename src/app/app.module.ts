@@ -13,10 +13,10 @@ import { CoreModule } from './core/core.module'
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    CoreModule,
-    SharedModule,
     AppRoutingModule,
+    CoreModule,
+    HttpClientModule,
+    SharedModule,
     TodosModule,
     AuthModule,
   ],

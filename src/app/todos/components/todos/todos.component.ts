@@ -1,4 +1,4 @@
-import { AuthService } from './../../../auth/services/auth.service'
+import { AuthService } from '../../../core/services/auth.service'
 import { MainTodo, Todo } from './../../models/todos.model'
 import { Observable } from 'rxjs'
 import { Component, OnInit } from '@angular/core'
