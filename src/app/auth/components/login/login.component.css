@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 #d6d3d140;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  gap: 40px;
+}
+.label {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+.span {
+  margin: 0;
+  padding: 0;
+  flex: 4;
+}
+.input {
+  flex: 5;
+}
+.error {
+  color: #682424;
+  margin: -30px 0;
+}
