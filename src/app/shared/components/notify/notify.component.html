@@ -1,0 +1,6 @@
+<div *ngIf="notify$ | async; let notify">
+  <div class="container">
+    <p class="text">{{ notify.message }}</p>
+    <button (click)="closeNotification()" class="button">x</button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  background: rgba(104, 36, 36, 0.25);
+  box-shadow: 0 8px 32px 0 #e38c8340;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+}
+.text {
+  margin: 0;
+  flex: 10;
+}
+.button {
+  padding: 2px;
+  flex: 2;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+.button:active {
+  border: 1px solid #d6d3d1;
+}

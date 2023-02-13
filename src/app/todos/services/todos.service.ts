@@ -1,10 +1,10 @@
-import { CommonResponse } from './../../core/models/core.models'
-import { MainTodo, Todo } from './../models/todos.model'
-import { environment } from './../../../environments/environment'
-import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
 import { BehaviorSubject, map } from 'rxjs'
 import { Filter } from 'src/app/core/enums/filter.enum'
+import { environment } from './../../../environments/environment'
+import { CommonResponse } from './../../core/models/core.models'
+import { MainTodo, Todo } from './../models/todos.model'
 @Injectable({
   providedIn: 'root',
 })

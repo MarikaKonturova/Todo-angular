@@ -1,14 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
-import { SharedRoutingModule } from './shared-routing.module';
-
+import { SharedRoutingModule } from './shared-routing.module'
+import { NotifyComponent } from './components/notify/notify.component'
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    SharedRoutingModule
-  ]
+  declarations: [NotifyComponent],
+  imports: [CommonModule, SharedRoutingModule],
+  exports: [NotifyComponent],
 })
-export class SharedModule { }
+export class SharedModule {}
