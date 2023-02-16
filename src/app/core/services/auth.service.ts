@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core'
 import { environment } from 'src/environments/environment'
 import { Router } from '@angular/router'
 import { loginData, MeResponse } from 'src/app/core/models/auth.models'
-import { catchError, EMPTY } from 'rxjs'
+import { catchError, EMPTY, map, tap } from 'rxjs'
 import { NotificationService } from './notification.service'
 
 @Injectable()
@@ -13,10 +13,6 @@ export class AuthService {
   isAuth = false
   resultCode = ResultCode
   // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-empty-function
-  resolveAuthRequest: Function = () => {}
-  authRequest = new Promise(res => {
-    this.resolveAuthRequest = res
-  })
 
   constructor(
     private http: HttpClient,
@@ -48,19 +44,22 @@ export class AuthService {
         }
       })
   }
-  me() {
-    this.http
-      .get<CommonResponse<MeResponse>>(`${environment.baseURL}/auth/me`)
-      .pipe(catchError(this.errorHandler.bind(this)))
-      .subscribe(res => {
-        if (res.resultCode == this.resultCode.success) {
+  callMe() {
+    return this.http.get<CommonResponse<MeResponse>>(`${environment.baseURL}/auth/me`).pipe(
+      map(res => {
+        const isSuccess = res.resultCode == this.resultCode.success
+        if (isSuccess) {
           this.isAuth = true
         } else {
           this.notificationService.handleError(res.messages[0])
         }
-
-        this.resolveAuthRequest()
-      })
+        return isSuccess
+      }),
+      catchError(this.errorHandler.bind(this))
+    )
+  }
+  me() {
+    this.callMe().subscribe()
   }
   private errorHandler(err: HttpErrorResponse) {
     this.notificationService.handleError(err.message)
